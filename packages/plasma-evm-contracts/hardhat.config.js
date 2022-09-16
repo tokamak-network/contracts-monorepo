@@ -1,13 +1,10 @@
-require('@nomiclabs/hardhat-waffle');
+require("@nomiclabs/hardhat-ethers");
+require("@nomiclabs/hardhat-waffle");
+const chai = require("chai");
+const { solidity } = require("ethereum-waffle");
+
+chai.use(solidity);
 
 module.exports = {
-  solidity: {
-    version: '0.5.12',
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 1000,
-      },
-    },
-  },
+  solidity: "0.5.12",
 };

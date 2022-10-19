@@ -5,11 +5,12 @@
   "keywords": [],
   "license": "ISC",
   "author": "",
-  "main": "truffle-config.js",
+  "main": "hardhat.config.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "build": "npx hardhat compile --show-stack-traces",
     "compile": "truffle compile",
     "console": "truffle console",
     "console:faraday": "truffle console --network faraday",
@@ -20,7 +21,7 @@
     "lint:sol": "solium -d .",
     "lint:sol:fix": "solium -d . --fix",
     "run:testrpc": "bash ./run.testrpc.sh",
-    "test": "scripts/test.sh ./test/RootChain.test.behavior.js",
+    "test": "npx hardhat test --show-stack-traces",
     "test:logtx": "LOGTX=true npm run test",
     "test:verbose": "VERBOSE=true npm run test",
     "test:verbose:logtx": "VERBOSE=true LOGTX=true npm run test",
@@ -36,8 +37,12 @@
     "rlp": "^2.1.0"
   },
   "devDependencies": {
-    "@makerdao/currency": "^0.9.6",
-    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@makerdao/currency": "^0.9.10",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.6",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
     "@openzeppelin/test-environment": "^0.1.1",
     "@openzeppelin/test-helpers": "^0.5.4",
     "chai": "^4.2.0",
@@ -54,20 +59,18 @@
     "eslint-plugin-standard": "^4.0.1",
     "eth-block-tracker": "^4.4.2",
     "eth-gas-reporter": "^0.1.12",
-    "ethereum-waffle": "^3.3.0",
+    "ethereum-waffle": "^3.4.4",
     "ethereumjs-abi": "^0.6.5",
     "ethjs-abi": "^0.2.1",
     "ethlint": "^1.2.5",
     "ganache-cli": "^6.7.0",
+    "hardhat": "^2.11.2",
+    "hardhat-deploy": "^0.11.15",
     "husky": "^6.0.0",
     "lodash": "^4.17.15",
     "mocha": "^7.0.0",
     "openzeppelin-test-helpers": "^0.4.2",
-    "solidity-coverage": "^0.5.4",
     "solidity-util": "github:willitscale/solidity-util",
-    "solium": "^1.2.4",
-    "truffle": "^5.1.20",
-    "truffle-privatekey-provider": "^1.5.0",
-    "web3-utils": "^1.2.1"
+    "solium": "^1.2.4"
   }
 }

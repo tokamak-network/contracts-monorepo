@@ -69,7 +69,6 @@ export class Env {
       args: [env.epochHandler.address]
     });
 
-    // deploy Layer2
     env.layer2s = [];
     await Promise.all(range(env.NUM_ROOTCHAINS).map(_ => env.deployLayer2()));
 

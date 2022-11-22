@@ -1010,6 +1010,8 @@ describe('stake/SeigManager', function () {
         const n = 1;
 
         function behaveWithCommissionRate (operatorRate, commissionRate, isCommissionRateNegative) {
+          //const operatorRateNr = operatorRate.toNumber();
+          //const commissionPercent = commissionRate.toNumber() * 100;
           const operatorRateNr = operatorRate;
           const commissionPercent = commissionRate * 100;
           const commissionRateSignStr = isCommissionRateNegative ? 'negative' : 'positive';

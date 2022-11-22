@@ -11,7 +11,8 @@ task('deploy-swap-proxy')
 
       console.log('Deploying SwapProxy')
       const deployedContract = await deploy('SwapProxy', {
-        from: deployer
+        from: deployer,
+        waitConfirmations: 6,
       })
 
       if (hre.network.live === true) {

@@ -71,6 +71,7 @@
     "mocha": "^7.0.0",
     "openzeppelin-test-helpers": "^0.4.2",
     "solidity-util": "github:willitscale/solidity-util",
-    "solium": "^1.2.4"
+    "solium": "^1.2.4",
+    "ts-node": "^10.9.1"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "name": "contracts-monorepo",
+  "version": "0.0.1",
+  "repository": "https://github.com/Onther-Tech/contracts-monorepo.git",
+  "author": "Onther",
+  "license": "MIT",
+  "private": true,
+  "workspaces": ["packages/*"]
+}

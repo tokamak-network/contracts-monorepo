@@ -6,13 +6,13 @@ import { ERC20Detailed } from "@openzeppelin/contracts/token/ERC20/ERC20Detailed
 import { ERC165Checker } from "@openzeppelin/contracts/introspection/ERC165Checker.sol";
 
 import { SeigManagerI } from "../interfaces/SeigManagerI.sol";
-import { SeigToken } from "./SeigToken.sol";
+import { SeigToken_deprecated } from "./SeigToken_deprecated.sol";
 
 
 /**
  * @dev Current implementations is just for testing seigniorage manager.
  */
-contract TON is Ownable, ERC20Mintable, ERC20Detailed, SeigToken {
+contract TON is Ownable, ERC20Mintable, ERC20Detailed, SeigToken_deprecated {
   constructor() public ERC20Detailed("Tokamak Network Token", "TON", 18) {}
 
   function setSeigManager(SeigManagerI _seigManager) external {

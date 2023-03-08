@@ -2,5 +2,10 @@ node_modules
 build
 artifacts/
 cache/
+dist
+
+*.tsbuildinfo
+yarn-error.log
+*.sw*
 
 .env

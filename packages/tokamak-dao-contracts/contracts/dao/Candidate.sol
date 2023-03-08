@@ -1,16 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.7.6;
 
-import "../../node_modules/@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 import { IDAOCommittee } from "../interfaces/IDAOCommittee.sol";
-import { IERC20 } from  "../../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import { SafeMath } from "../../node_modules/@openzeppelin/contracts/math/SafeMath.sol";
+import { IERC20 } from  "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import { SafeMath } from "@openzeppelin/contracts/math/SafeMath.sol";
 import { ISeigManager } from "../interfaces/ISeigManager.sol";
 import { ICandidate } from "../interfaces/ICandidate.sol";
 import { ILayer2 } from "../interfaces/ILayer2.sol";
 import { ILayer2Registry } from "../interfaces/ILayer2Registry.sol";
-import { ERC165 } from "../../node_modules/@openzeppelin/contracts/introspection/ERC165.sol";
+import { ERC165 } from "@openzeppelin/contracts/introspection/ERC165.sol";
 
 /// @title Managing a candidate
 /// @notice Either a user or layer2 contract can be a candidate

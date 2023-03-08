@@ -1,19 +1,28 @@
 {
-  "name": "plasma-evm-contracts",
-  "version": "1.0.0",
+  "name": "@tokamak-network/plasma-evm-contracts",
+  "version": "0.0.1",
   "description": "",
   "keywords": [],
   "license": "ISC",
   "author": "",
-  "main": "hardhat.config.ts",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "artifacts/contracts/**/*.json"
+  ],
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "build": "npx hardhat compile --show-stack-traces",
+    "build": "yarn build:contracts && yarn autogen:artifacts && yarn build:typescript",
+    "build:contracts": "hardhat compile --show-stack-traces",
+    "build:typescript": "tsc -p ./tsconfig.json",
     "compile": "truffle compile",
     "console": "truffle console",
     "console:faraday": "truffle console --network faraday",
+    "autogen:artifacts": "ts-node scripts/generate-artifacts.ts",
     "lint": "npm run lint:js && npm run lint:sol",
     "lint:fix": "npm run lint:js:fix && npm run lint:sol:fix",
     "lint:js": "eslint .",

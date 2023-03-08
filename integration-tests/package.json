@@ -1,0 +1,22 @@
+{
+  "name": "@tokamak-network/integration-tests",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "hardhat test --show-stack-traces"
+  },
+  "dependencies": {
+    "@makerdao/currency": "^0.9.10",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@openzeppelin/test-helpers": "^0.5.16",
+    "@tokamak-network/tokamak-test-helpers": "^0.0.1",
+    "chai": "^4.3.7",
+    "ethereum-waffle": "^4.0.10",
+    "ethers": "^5.7.0",
+    "hardhat": "^2.13.0",
+    "lodash": "^4.17.21"
+  }
+}

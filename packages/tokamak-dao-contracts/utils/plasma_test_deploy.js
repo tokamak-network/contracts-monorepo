@@ -1,4 +1,4 @@
-const {
+/*const {
   defaultSender, accounts, contract, web3,
 } = require('@openzeppelin/test-environment');
 const {
@@ -12,7 +12,13 @@ const { createCurrency, createCurrencyRatio } = require('@makerdao/currency');
 
 const chai = require('chai');
 const { expect } = chai;
-chai.use(require('chai-bn')(BN)).should();
+chai.use(require('chai-bn')(BN)).should();*/
+
+import { hre, ethers } from 'hardhat';
+import { BigNumber, Contract, utils } from 'ethers';
+import { createCurrency, createCurrencyRatio } from '@makerdao/currency';
+import { deploy, attach } from 'helpers/deploy';
+
 
 const {
   AGENDA_INDEX_CREATED_TIMESTAMP,

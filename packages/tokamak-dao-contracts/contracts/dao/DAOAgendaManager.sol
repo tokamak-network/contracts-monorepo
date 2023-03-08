@@ -2,13 +2,13 @@
 pragma solidity ^0.7.6;
 pragma abicoder v2;
 
-import { SafeMath } from "../../node_modules/@openzeppelin/contracts/math/SafeMath.sol";
-import { IERC20 } from  "../../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import { SafeMath } from "@openzeppelin/contracts/math/SafeMath.sol";
+import { IERC20 } from  "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { IDAOAgendaManager } from "../interfaces/IDAOAgendaManager.sol";
 import { IDAOCommittee } from "../interfaces/IDAOCommittee.sol";
 import { ICandidate } from "../interfaces/ICandidate.sol";
 import { LibAgenda } from "../lib/Agenda.sol";
-import "../../node_modules/@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract DAOAgendaManager is Ownable, IDAOAgendaManager {
     using SafeMath for uint256;

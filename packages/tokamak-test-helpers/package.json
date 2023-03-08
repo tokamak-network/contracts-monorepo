@@ -1,0 +1,19 @@
+{
+  "name": "@tokamak-network/tokamak-test-helpers",
+  "version": "0.0.1",
+  "main": "dist/index",
+  "types": "dist/index",
+  "author": "onther",
+  "license": "MIT",
+  "files": [
+    "dist/*",
+    "src/*"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@tokamak-network/plasma-evm-contracts": "^0.0.1",
+    "ethers": "^5.7.0"
+  }
+}

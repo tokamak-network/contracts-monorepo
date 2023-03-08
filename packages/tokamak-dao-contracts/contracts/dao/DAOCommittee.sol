@@ -2,17 +2,17 @@
 pragma solidity ^0.7.6;
 pragma abicoder v2;
 
-import "../../node_modules/@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
 import "./StorageStateCommittee.sol";
 
-import { SafeMath } from "../../node_modules/@openzeppelin/contracts/math/SafeMath.sol";
-import { IERC20 } from  "../../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import { SafeMath } from "@openzeppelin/contracts/math/SafeMath.sol";
+import { IERC20 } from  "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { IDAOCommittee } from "../interfaces/IDAOCommittee.sol";
 import { ICandidate } from "../interfaces/ICandidate.sol";
 import { ILayer2 } from "../interfaces/ILayer2.sol";
 import { IDAOAgendaManager } from "../interfaces/IDAOAgendaManager.sol";
 import { LibAgenda } from "../lib/Agenda.sol";
-import { ERC165Checker } from "../../node_modules/@openzeppelin/contracts/introspection/ERC165Checker.sol";
+import { ERC165Checker } from "@openzeppelin/contracts/introspection/ERC165Checker.sol";
 
 contract DAOCommittee is StorageStateCommittee, AccessControl, IDAOCommittee {
     using SafeMath for uint256;

@@ -19,6 +19,7 @@
     "build": "yarn build:contracts && yarn autogen:artifacts && yarn build:typescript",
     "build:contracts": "hardhat compile --show-stack-traces",
     "build:typescript": "tsc -p ./tsconfig.json",
+    "clean": "rm -rf ./dist ./artifacts ./cache ./tsconfig.tsbuildinfo",
     "compile": "truffle compile",
     "console": "truffle console",
     "console:faraday": "truffle console --network faraday",

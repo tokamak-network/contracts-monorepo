@@ -42,6 +42,12 @@
         // } catch {}
         
 
+        let CandidateFactory
+        try {
+          CandidateFactory = require('../artifacts/contracts/CandidateFactory.json')
+        } catch {}
+        
+
         let AccessibleCommon
         try {
           AccessibleCommon = require('../artifacts/contracts/common/AccessibleCommon.sol/AccessibleCommon.json')
@@ -740,6 +746,7 @@ Context,
 EnumerableSet,
 ERC165A,
 IERC165,
+CandidateFactory,
 AccessibleCommon,
 AccessRoleCommon,
 ProxyAccessCommon,

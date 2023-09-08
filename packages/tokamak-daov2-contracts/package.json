@@ -1,6 +1,10 @@
 {
-  "name": "tokamak-daov2-contracts",
+  "name": "@tokamak-network/tokamak-daov2-contracts",
   "version": "0.0.1",
+  "description": "As TON Staking is upgraded to V2, the DAO contract is also upgraded.",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "main": "dist/index",
   "types": "dist/index",
   "files": [
@@ -49,5 +53,8 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.8.2",
     "web3-eth-abi": "^1.9.0"
+  },
+  "directories": {
+    "test": "test"
   }
 }

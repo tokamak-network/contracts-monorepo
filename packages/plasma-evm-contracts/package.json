@@ -24,6 +24,7 @@
     "console": "truffle console",
     "console:faraday": "truffle console --network faraday",
     "autogen:artifacts": "ts-node scripts/generate-artifacts.ts",
+    "autogen:deployed": "ts-node scripts/generate-deployed-artifacts.ts",
     "lint": "npm run lint:js && npm run lint:sol",
     "lint:fix": "npm run lint:js:fix && npm run lint:sol:fix",
     "lint:js": "eslint .",

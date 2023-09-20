@@ -36,16 +36,58 @@
         } catch {}
         
 
+        // let ERC20
+        // try {
+        //   ERC20 = require('../artifacts/contracts/AccessControl/ERC20.sol/ERC20.json')
+        // } catch {}
+        
+
+        let ERC20Burnable
+        try {
+          ERC20Burnable = require('../artifacts/contracts/AccessControl/ERC20Burnable.sol/ERC20Burnable.json')
+        } catch {}
+        
+
+        // let ERC20Detailed
+        // try {
+        //   ERC20Detailed = require('../artifacts/contracts/AccessControl/ERC20Detailed.sol/ERC20Detailed.json')
+        // } catch {}
+        
+
+        // let ERC20Mintable
+        // try {
+        //   ERC20Mintable = require('../artifacts/contracts/AccessControl/ERC20Mintable.sol/ERC20Mintable.json')
+        // } catch {}
+        
+
         // let IERC165
         // try {
         //   IERC165 = require('../artifacts/contracts/AccessControl/IERC165.sol/IERC165.json')
         // } catch {}
         
 
-        let CandidateFactory
-        try {
-          CandidateFactory = require('../artifacts/contracts/CandidateFactory.json')
-        } catch {}
+        // let IERC20
+        // try {
+        //   IERC20 = require('../artifacts/contracts/AccessControl/IERC20.sol/IERC20.json')
+        // } catch {}
+        
+
+        // let MinterRole
+        // try {
+        //   MinterRole = require('../artifacts/contracts/AccessControl/MinterRole.sol/MinterRole.json')
+        // } catch {}
+        
+
+        // let Roles
+        // try {
+        //   Roles = require('../artifacts/contracts/AccessControl/Roles.sol/Roles.json')
+        // } catch {}
+        
+
+        // let SafeMath
+        // try {
+        //   SafeMath = require('../artifacts/contracts/AccessControl/SafeMath.sol/SafeMath.json')
+        // } catch {}
         
 
         let AccessibleCommon
@@ -123,6 +165,18 @@
         let StorageStateCommitteeV2
         try {
           StorageStateCommitteeV2 = require('../artifacts/contracts/dao/StorageStateCommitteeV2.sol/StorageStateCommitteeV2.json')
+        } catch {}
+        
+
+        // let AutoRefactorCoinageI
+        // try {
+        //   AutoRefactorCoinageI = require('../artifacts/contracts/interfaces/AutoRefactorCoinageI.sol/AutoRefactorCoinageI.json')
+        // } catch {}
+        
+
+        let CoinageFactoryI
+        try {
+          CoinageFactoryI = require('../artifacts/contracts/interfaces/CoinageFactoryI.sol/CoinageFactoryI.json')
         } catch {}
         
 
@@ -243,6 +297,12 @@
         let LibAgenda
         try {
           LibAgenda = require('../artifacts/contracts/lib/Agenda.sol/LibAgenda.json')
+        } catch {}
+        
+
+        let DSMath
+        try {
+          DSMath = require('../artifacts/contracts/lib/DSMath.sol/DSMath.json')
         } catch {}
         
 
@@ -402,9 +462,33 @@
         } catch {}
         
 
+        let AutoRefactorCoinage
+        try {
+          AutoRefactorCoinage = require('../artifacts/contracts/test/AutoRefactorCoinage.sol/AutoRefactorCoinage.json')
+        } catch {}
+        
+
+        // let Candidate
+        // try {
+        //   Candidate = require('../artifacts/contracts/test/Candidate.sol/Candidate.json')
+        // } catch {}
+        
+
+        let CandidateFactory
+        try {
+          CandidateFactory = require('../artifacts/contracts/test/CandidateFactory.sol/CandidateFactory.json')
+        } catch {}
+        
+
         let Candidate
         try {
-          Candidate = require('../artifacts/contracts/test/Candidate.sol/Candidate.json')
+          Candidate = require('../artifacts/contracts/test/CandidateV1.sol/Candidate.json')
+        } catch {}
+        
+
+        let CoinageFactory
+        try {
+          CoinageFactory = require('../artifacts/contracts/test/CoinageFactory.sol/CoinageFactory.json')
         } catch {}
         
 
@@ -745,8 +829,15 @@ Address,
 Context,
 EnumerableSet,
 ERC165A,
+ERC20,
+ERC20Burnable,
+ERC20Detailed,
+ERC20Mintable,
 IERC165,
-CandidateFactory,
+IERC20,
+MinterRole,
+Roles,
+SafeMath,
 AccessibleCommon,
 AccessRoleCommon,
 ProxyAccessCommon,
@@ -760,6 +851,8 @@ IStakeManagerV2,
 // IStaking,
 StorageStateCommittee,
 StorageStateCommitteeV2,
+AutoRefactorCoinageI,
+CoinageFactoryI,
 ICandidate,
 ICandidateFactory,
 ICandidateV2,
@@ -767,7 +860,7 @@ IDAOAgendaManager,
 IDAOCommittee,
 IDAOv2Committee,
 IDAOVault,
-IERC20,
+// IERC20,
 ILayer2,
 ILayer2Manager,
 ILayer2Registry,
@@ -780,6 +873,7 @@ ISeigManagerV2,
 IStorageStateCommittee,
 IWTON,
 LibAgenda,
+DSMath,
 BytesLib,
 BytesParserLib,
 Layer2,
@@ -806,7 +900,11 @@ Layer2ManagerStorage,
 OptimismSequencerStorage,
 SeigManagerV2Storage,
 StakingStorage,
+AutoRefactorCoinage,
 Candidate,
+CandidateFactory,
+// Candidate,
+CoinageFactory,
 CrossDomainEnabled,
 DAOAgendaManager,
 DAOVault,
@@ -829,7 +927,7 @@ MockL1Messenger,
 MockL2Bridge,
 MockL2Messenger,
 OptimismSequencer,
-AutoRefactorCoinageI,
+// AutoRefactorCoinageI,
 Layer2ManagerI,
 SeigManagerV2,
 StakingI,
@@ -845,20 +943,20 @@ AuthController,
 // Context,
 ERC165,
 ERC165Checker,
-ERC20,
-ERC20Detailed,
-ERC20Mintable,
+// ERC20,
+// ERC20Detailed,
+// ERC20Mintable,
 ERC20OnApprove,
 // IERC165,
 // IERC20,
-MinterRole,
+// MinterRole,
 MinterRoleRenounceTarget,
 OnApprove,
 Ownable,
 OwnableTarget,
 PauserRoleRenounceTarget,
-Roles,
-SafeMath,
+// Roles,
+// SafeMath,
 SeigManagerI,
 SeigToken,
 TON

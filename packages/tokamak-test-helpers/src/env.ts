@@ -1,11 +1,12 @@
 import { range } from 'lodash';
-import { BigNumber, Contract, ethers, utils, Wallet } from 'ethers'
+import { BigNumber, Contract, ContractReceipt, ethers, utils, Wallet } from 'ethers'
 
 import { parseTon, parseWton, tonUnitToWtonUnit, wtonUnitToTonUnit } from './unit';
 import { deploy, attach } from './deploy';
 
 import * as helpers from '@nomicfoundation/hardhat-network-helpers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers'
+import { getEnvironmentData } from 'worker_threads';
 
 const Web3EthAbi = require('web3-eth-abi');
 
@@ -73,6 +74,53 @@ export class Env {
 
   daoProxyLogic1: Contract
   daoProxyLogic2: Contract
+
+  seigManagerV2Logic: Contract
+  seigManagerV2Proxy: Contract
+  seigManagerV2: Contract
+
+  LibOptimism_: Contract
+  libOptimism: Contract  
+
+  LibOperator_: Contract
+  libOperator: Contract
+
+  Layer2Manager_: Contract
+  Layer2ManagerLogic_: Contract
+  Layer2ManagerProxy_: Contract
+  layer2ManagerProxy: Contract
+
+  layer2Manager: Contract
+
+  OptimismSequencer_: Contract
+  OptimismSequencerLogic_: Contract
+  OptimismSequencerProxy_: Contract
+  optimismSequencerProxy: Contract
+  optimismSequencer: Contract
+
+  Candidate_: Contract
+  CandidateLogic: Contract
+  CandidateProxy_: Contract
+  candidateProxy: Contract
+  candidate: Contract
+
+  Lib_AddressManager: Contract
+  addressManager: Contract
+
+  MockL1Messenger: Contract
+  l1Messenger: Contract
+
+  MockL2Messenger: Contract
+  l2Messenger: Contract
+
+  MockL1Bridge: Contract
+  l1Bridge: Contract
+
+  MockL2Bridge: Contract
+  l2Bridge: Contract
+
+  TestERC20: Contract
+  l2ton: Contract
 
 
   constructor(args: any) {
@@ -403,6 +451,156 @@ export class Env {
 
 
     //StakingV2
+    env.seigManagerV2Logic = await deploy(
+      'tokamak-daov2-contracts',
+      'SeigManagerV2',
+      { signer: owner }
+    )
+
+    env.seigManagerV2Proxy = await deploy(
+      'tokamak-daov2-contracts',
+      'SeigManagerV2Proxy',
+      { signer: owner }
+    )
+
+    env.seigManagerV2 = await attach(
+      'tokamak-daov2-contracts',
+      'SeigManagerV2',
+      env.seigManagerV2Proxy.address,
+      { signer: owner }
+    )
+
+    env.libOptimism = await deploy(
+      'tokamak-daov2-contracts',
+      'LibOptimism',
+      { signer: owner }
+    )
+
+    env.libOperator = await deploy(
+      'tokamak-daov2-contracts',
+      'LibOperator',
+      { signer: owner }
+    )
+
+    env.Layer2ManagerLogic_ = await deploy(
+      'tokamak-daov2-contracts',
+      'Layer2Manager',
+      {
+        signer: owner,
+        libraries: { 
+          LibOptimism: env.libOptimism.address, 
+          LibOperator: env.libOperator.address 
+        }
+      }
+    )
+
+    env.layer2ManagerProxy = await deploy(
+      'tokamak-daov2-contracts',
+      'Layer2ManagerProxy',
+      { signer: owner }
+    )
+
+    env.layer2Manager = await attach(
+      'tokamak-daov2-contracts',
+      'Layer2Manager',
+      env.layer2ManagerProxy.address,
+      { signer: owner }
+    )
+
+    env.OptimismSequencerLogic_ = await deploy(
+      'tokamak-daov2-contracts',
+      'OptimismSequencer',
+      {
+        signer: owner,
+        libraries: { 
+          LibOptimism: env.libOptimism.address
+        }
+      }
+    )
+
+    env.optimismSequencerProxy = await deploy(
+      'tokamak-daov2-contracts',
+      'OptimismSequencerProxy',
+      { signer: owner }
+    )
+
+    env.optimismSequencer = await attach(
+      'tokamak-daov2-contracts',
+      'OptimismSequencer',
+      env.optimismSequencerProxy.address,
+      { signer: owner }
+    )
+
+    env.CandidateLogic = await deploy(
+      'tokamak-daov2-contracts',
+      'Candidate',
+      {
+        signer: owner,
+        libraries: { 
+          LibOperator: env.libOperator.address 
+        }
+      }
+    )
+
+    env.candidateProxy = await deploy(
+      'tokamak-daov2-contracts',
+      'CandidateProxy',
+      {
+        signer: owner
+      }
+    )
+
+    env.candidate = await attach(
+      'tokamak-daov2-contracts',
+      'Candidate',
+      env.candidateProxy.address,
+      { signer: owner }
+    )
+
+
+    env.addressManager = await deploy(
+      'tokamak-daov2-contracts',
+      'Lib_AddressManager',
+      { signer: owner }
+    )
+
+    env.l1Messenger = await deploy(
+      'tokamak-daov2-contracts',
+      'MockL1Messenger',
+      { signer: owner }
+    )
+
+    env.l2Messenger = await deploy(
+      'tokamak-daov2-contracts',
+      'MockL2Messenger',
+      { signer: owner }
+    )
+
+    env.l1Bridge = await deploy(
+      'tokamak-daov2-contracts',
+      'MockL1Bridge',
+      { signer: owner }
+    )
+
+    env.l2Bridge = await deploy(
+      'tokamak-daov2-contracts',
+      'MockL2Bridge',
+      { signer: owner }
+    )
+
+    await env.l1Bridge.setAddress(
+      env.l1Messenger.address,
+      env.l2Bridge.address
+    )
+
+    await env.addressManager.setAddress("OVM_L1CrossDomainMessenger", env.l1Messenger.address);
+    await env.addressManager.setAddress("Proxy__OVM_L1StandardBridge", env.l1Bridge.address);
+
+    env.l2ton = await deploy(
+      'tokamak-daov2-contracts',
+      'TestERC20',
+      { signer: owner }
+    )
 
     return env;
   }

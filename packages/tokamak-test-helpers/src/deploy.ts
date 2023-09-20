@@ -8,6 +8,7 @@ export const deploy = async (
   opts?: {
     args?: any[]
     signer?: any
+    libraries?: {}
   }
 ) => {
   let factory;
@@ -25,6 +26,7 @@ export const attach = async (
   address: string,
   opts?: {
     signer?: any
+    libraries?: {}
   }
 ) => {
   let factory;

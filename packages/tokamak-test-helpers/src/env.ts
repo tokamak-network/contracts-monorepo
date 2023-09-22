@@ -248,359 +248,359 @@ export class Env {
 
 
     //DAOv2 Part
-    env.daoAgendaManager = await deploy(
-      'tokamak-daov2-contracts', 
-      'DAOAgendaManager', 
-      { signer: owner }
-    );
+    // env.daoAgendaManager = await deploy(
+    //   'tokamak-daov2-contracts', 
+    //   'DAOAgendaManager', 
+    //   { signer: owner }
+    // );
 
-    env.candidateFactory = await deploy(
-      'tokamak-daov2-contracts', 
-      'CandidateFactory', 
-      { signer: owner }
-    );
+    // env.candidateFactory = await deploy(
+    //   'tokamak-daov2-contracts', 
+    //   'CandidateFactory', 
+    //   { signer: owner }
+    // );
 
-    env.daoV2Proxy = await deploy(
-      'tokamak-daov2-contracts', 
-      'DAOCommitteeProxyV2', 
-      { signer: owner }
-    );
+    // env.daoV2Proxy = await deploy(
+    //   'tokamak-daov2-contracts', 
+    //   'DAOCommitteeProxyV2', 
+    //   { signer: owner }
+    // );
 
-    env.daoV1Proxy = await deploy(
-      'tokamak-daov2-contracts', 
-      'DAOCommitteeProxy', 
-    {
-      args: [
-        env.ton.address,
-        env.daoV2Proxy.address,
-        env.seigManager.address,
-        env.registry.address,
-        env.daoAgendaManager.address,
-        env.candidateFactory.address,
-        env.daoVault.address
-      ],
-      signer: owner
-    })
+    // env.daoV1Proxy = await deploy(
+    //   'tokamak-daov2-contracts', 
+    //   'DAOCommitteeProxy', 
+    // {
+    //   args: [
+    //     env.ton.address,
+    //     env.daoV2Proxy.address,
+    //     env.seigManager.address,
+    //     env.registry.address,
+    //     env.daoAgendaManager.address,
+    //     env.candidateFactory.address,
+    //     env.daoVault.address
+    //   ],
+    //   signer: owner
+    // })
 
-    env.daoCommitteV1 = await deploy(
-      'tokamak-daov2-contracts', 
-      'DAOv2CommitteeV1', 
-      { signer: owner }
-    )
+    // env.daoCommitteV1 = await deploy(
+    //   'tokamak-daov2-contracts', 
+    //   'DAOv2CommitteeV1', 
+    //   { signer: owner }
+    // )
 
-    env.daoCommitteV2 = await deploy(
-      'tokamak-daov2-contracts', 
-      'DAOv2CommitteeV2', 
-      { signer: owner }
-    )
+    // env.daoCommitteV2 = await deploy(
+    //   'tokamak-daov2-contracts', 
+    //   'DAOv2CommitteeV2', 
+    //   { signer: owner }
+    // )
 
-    env.daoV2Proxy.setAliveImplementation2(
-      env.daoCommitteV1.address,
-      true
-    )
+    // env.daoV2Proxy.setAliveImplementation2(
+    //   env.daoCommitteV1.address,
+    //   true
+    // )
     
-    env.daoV2Proxy.setImplementation2(
-      env.daoCommitteV1.address,
-      0,
-      true
-    )
+    // env.daoV2Proxy.setImplementation2(
+    //   env.daoCommitteV1.address,
+    //   0,
+    //   true
+    // )
 
-    env.daoV2Proxy.setAliveImplementation2(
-      env.daoCommitteV2.address,
-      true
-    )
+    // env.daoV2Proxy.setAliveImplementation2(
+    //   env.daoCommitteV2.address,
+    //   true
+    // )
 
-    env.daoV2Proxy.setImplementation2(
-      env.daoCommitteV2.address,
-      1,
-      true
-    )
+    // env.daoV2Proxy.setImplementation2(
+    //   env.daoCommitteV2.address,
+    //   1,
+    //   true
+    // )
 
-    const _setSeigManagerV2 = Web3EthAbi.encodeFunctionSignature(
-        "setSeigManagerV2(address)"
-    )
+    // const _setSeigManagerV2 = Web3EthAbi.encodeFunctionSignature(
+    //     "setSeigManagerV2(address)"
+    // )
     
-    const _setLayer2Manager = Web3EthAbi.encodeFunctionSignature(
-        "setLayer2Manager(address)"
-    )
+    // const _setLayer2Manager = Web3EthAbi.encodeFunctionSignature(
+    //     "setLayer2Manager(address)"
+    // )
 
-    const _setCandidates = Web3EthAbi.encodeFunctionSignature(
-        "setCandidates(address)"
-    )
+    // const _setCandidates = Web3EthAbi.encodeFunctionSignature(
+    //     "setCandidates(address)"
+    // )
 
-    const _setOptimismSequencer = Web3EthAbi.encodeFunctionSignature(
-        "setOptimismSequencer(address)"
-    )
+    // const _setOptimismSequencer = Web3EthAbi.encodeFunctionSignature(
+    //     "setOptimismSequencer(address)"
+    // )
 
-    const _increaseMaxMember = Web3EthAbi.encodeFunctionSignature(
-        "increaseMaxMember(uint256,uint256)"
-    )
+    // const _increaseMaxMember = Web3EthAbi.encodeFunctionSignature(
+    //     "increaseMaxMember(uint256,uint256)"
+    // )
 
-    const _decreaseMaxMember = Web3EthAbi.encodeFunctionSignature(
-        "decreaseMaxMember(uint256,uint256)"
-    )
+    // const _decreaseMaxMember = Web3EthAbi.encodeFunctionSignature(
+    //     "decreaseMaxMember(uint256,uint256)"
+    // )
 
-    const _setQuorum = Web3EthAbi.encodeFunctionSignature(
-        "setQuorum(uint256)"
-    )
+    // const _setQuorum = Web3EthAbi.encodeFunctionSignature(
+    //     "setQuorum(uint256)"
+    // )
 
-    const _createCandidateV2 = Web3EthAbi.encodeFunctionSignature(
-        "createCandidateV2(address,uint32,uint32)"
-    )
+    // const _createCandidateV2 = Web3EthAbi.encodeFunctionSignature(
+    //     "createCandidateV2(address,uint32,uint32)"
+    // )
 
-    const _createOptimismSequencer = Web3EthAbi.encodeFunctionSignature(
-        "createOptimismSequencer(address,uint32)"
-    )
+    // const _createOptimismSequencer = Web3EthAbi.encodeFunctionSignature(
+    //     "createOptimismSequencer(address,uint32)"
+    // )
 
-    const _changeMemberV1 = Web3EthAbi.encodeFunctionSignature(
-        "changeMember(uint256)"
-    )
+    // const _changeMemberV1 = Web3EthAbi.encodeFunctionSignature(
+    //     "changeMember(uint256)"
+    // )
 
-    const _changeMember = Web3EthAbi.encodeFunctionSignature(
-        "changeMemberV2(uint256,uint32)"
-    )
+    // const _changeMember = Web3EthAbi.encodeFunctionSignature(
+    //     "changeMemberV2(uint256,uint32)"
+    // )
 
-    const _updateSeigniorageV2 = Web3EthAbi.encodeFunctionSignature(
-        "updateSeigniorageV2()"
-    )
+    // const _updateSeigniorageV2 = Web3EthAbi.encodeFunctionSignature(
+    //     "updateSeigniorageV2()"
+    // )
 
-    const _retireMember = Web3EthAbi.encodeFunctionSignature(
-        "retireMember()"
-    )
+    // const _retireMember = Web3EthAbi.encodeFunctionSignature(
+    //     "retireMember()"
+    // )
 
-    const _retireMemberV2 = Web3EthAbi.encodeFunctionSignature(
-        "retireMemberV2(uint32)"
-    )
+    // const _retireMemberV2 = Web3EthAbi.encodeFunctionSignature(
+    //     "retireMemberV2(uint32)"
+    // )
 
-    const _castVote = Web3EthAbi.encodeFunctionSignature(
-        "castVote(uint256,uint256,string,uint32)"
-    )
+    // const _castVote = Web3EthAbi.encodeFunctionSignature(
+    //     "castVote(uint256,uint256,string,uint32)"
+    // )
 
-    const _claimActivityRewardV1 = Web3EthAbi.encodeFunctionSignature(
-        "claimActivityReward(address)"
-    )
+    // const _claimActivityRewardV1 = Web3EthAbi.encodeFunctionSignature(
+    //     "claimActivityReward(address)"
+    // )
 
-    const _claimActivityReward = Web3EthAbi.encodeFunctionSignature(
-        "claimActivityRewardV2(address,uint32)"
-    )
+    // const _claimActivityReward = Web3EthAbi.encodeFunctionSignature(
+    //     "claimActivityRewardV2(address,uint32)"
+    // )
 
-    const _totalSupplyOnCandidateV2 = Web3EthAbi.encodeFunctionSignature(
-        "totalSupplyOnCandidateV2(uint32)"
-    )
+    // const _totalSupplyOnCandidateV2 = Web3EthAbi.encodeFunctionSignature(
+    //     "totalSupplyOnCandidateV2(uint32)"
+    // )
 
-    const _totalSupplyOnSequencerV2 = Web3EthAbi.encodeFunctionSignature(
-        "totalSupplyOnSequencerV2(uint32)"
-    )
+    // const _totalSupplyOnSequencerV2 = Web3EthAbi.encodeFunctionSignature(
+    //     "totalSupplyOnSequencerV2(uint32)"
+    // )
 
-    const _balanceOfOnCandidateV2 = Web3EthAbi.encodeFunctionSignature(
-        "balanceOfOnCandidateV2(uint32,address)"
-    )
+    // const _balanceOfOnCandidateV2 = Web3EthAbi.encodeFunctionSignature(
+    //     "balanceOfOnCandidateV2(uint32,address)"
+    // )
 
-    const _balanceOfOnSequencerV2 = Web3EthAbi.encodeFunctionSignature(
-        "balanceOfOnSequencerV2(uint32,address)"
-    )
+    // const _balanceOfOnSequencerV2 = Web3EthAbi.encodeFunctionSignature(
+    //     "balanceOfOnSequencerV2(uint32,address)"
+    // )
 
-    const _candidatesLength = Web3EthAbi.encodeFunctionSignature(
-        "candidatesLength()"
-    )
+    // const _candidatesLength = Web3EthAbi.encodeFunctionSignature(
+    //     "candidatesLength()"
+    // )
 
-    const _candidatesLengthV2 = Web3EthAbi.encodeFunctionSignature(
-        "candidatesLengthV2()"
-    )
+    // const _candidatesLengthV2 = Web3EthAbi.encodeFunctionSignature(
+    //     "candidatesLengthV2()"
+    // )
 
-    const _isExistCandidate = Web3EthAbi.encodeFunctionSignature(
-        "isExistCandidate(address)"
-    )
+    // const _isExistCandidate = Web3EthAbi.encodeFunctionSignature(
+    //     "isExistCandidate(address)"
+    // )
 
-    const _isExistCandidateV2 = Web3EthAbi.encodeFunctionSignature(
-        "isExistCandidateV2(address,uint32)"
-    )
+    // const _isExistCandidateV2 = Web3EthAbi.encodeFunctionSignature(
+    //     "isExistCandidateV2(address,uint32)"
+    // )
 
-    const _getClaimableActivityReward = Web3EthAbi.encodeFunctionSignature(
-        "getClaimableActivityReward(address)"
-    )
+    // const _getClaimableActivityReward = Web3EthAbi.encodeFunctionSignature(
+    //     "getClaimableActivityReward(address)"
+    // )
 
-    const _getClaimableActivityRewardV2 = Web3EthAbi.encodeFunctionSignature(
-        "getClaimableActivityRewardV2(address,uint32)"
-    )
+    // const _getClaimableActivityRewardV2 = Web3EthAbi.encodeFunctionSignature(
+    //     "getClaimableActivityRewardV2(address,uint32)"
+    // )
 
-    env.daoV2Proxy.setSelectorImplementations2(
-      [
-          _setSeigManagerV2,_setLayer2Manager,_setCandidates,_setOptimismSequencer,
-          _increaseMaxMember,_decreaseMaxMember,_setQuorum,_createCandidateV2,_createOptimismSequencer,
-          _changeMemberV1,_changeMember,_updateSeigniorageV2,_retireMember,_retireMemberV2,_castVote,_claimActivityRewardV1,_claimActivityReward,
-          _totalSupplyOnCandidateV2,_totalSupplyOnSequencerV2,_balanceOfOnCandidateV2,_balanceOfOnSequencerV2,
-          _candidatesLength,_candidatesLengthV2,_isExistCandidate,_isExistCandidateV2,
-          _getClaimableActivityReward,_getClaimableActivityRewardV2
-      ],
-      env.daoCommitteV2.address
-    )
+    // env.daoV2Proxy.setSelectorImplementations2(
+    //   [
+    //       _setSeigManagerV2,_setLayer2Manager,_setCandidates,_setOptimismSequencer,
+    //       _increaseMaxMember,_decreaseMaxMember,_setQuorum,_createCandidateV2,_createOptimismSequencer,
+    //       _changeMemberV1,_changeMember,_updateSeigniorageV2,_retireMember,_retireMemberV2,_castVote,_claimActivityRewardV1,_claimActivityReward,
+    //       _totalSupplyOnCandidateV2,_totalSupplyOnSequencerV2,_balanceOfOnCandidateV2,_balanceOfOnSequencerV2,
+    //       _candidatesLength,_candidatesLengthV2,_isExistCandidate,_isExistCandidateV2,
+    //       _getClaimableActivityReward,_getClaimableActivityRewardV2
+    //   ],
+    //   env.daoCommitteV2.address
+    // )
 
-    env.daoProxyLogic1 =  await attach(
-      'tokamak-daov2-contracts', 
-      'DAOv2CommitteeV1', 
-      env.daoV1Proxy.address, 
-      { signer: owner }
-    );
-    env.daoProxyLogic2 =  await attach(
-      'tokamak-daov2-contracts', 
-      'DAOv2CommitteeV2', 
-      env.daoV1Proxy.address, 
-      { signer: owner }
-    );
-
-
-    //StakingV2
-    env.seigManagerV2Logic = await deploy(
-      'tokamak-daov2-contracts',
-      'SeigManagerV2',
-      { signer: owner }
-    )
-
-    env.seigManagerV2Proxy = await deploy(
-      'tokamak-daov2-contracts',
-      'SeigManagerV2Proxy',
-      { signer: owner }
-    )
-
-    env.seigManagerV2 = await attach(
-      'tokamak-daov2-contracts',
-      'SeigManagerV2',
-      env.seigManagerV2Proxy.address,
-      { signer: owner }
-    )
-
-    env.libOptimism = await deploy(
-      'tokamak-daov2-contracts',
-      'LibOptimism',
-      { signer: owner }
-    )
-
-    env.libOperator = await deploy(
-      'tokamak-daov2-contracts',
-      'LibOperator',
-      { signer: owner }
-    )
-
-    env.Layer2ManagerLogic_ = await deploy(
-      'tokamak-daov2-contracts',
-      'Layer2Manager',
-      {
-        signer: owner,
-        libraries: { 
-          LibOptimism: env.libOptimism.address, 
-          LibOperator: env.libOperator.address 
-        }
-      }
-    )
-
-    env.layer2ManagerProxy = await deploy(
-      'tokamak-daov2-contracts',
-      'Layer2ManagerProxy',
-      { signer: owner }
-    )
-
-    env.layer2Manager = await attach(
-      'tokamak-daov2-contracts',
-      'Layer2Manager',
-      env.layer2ManagerProxy.address,
-      { signer: owner }
-    )
-
-    env.OptimismSequencerLogic_ = await deploy(
-      'tokamak-daov2-contracts',
-      'OptimismSequencer',
-      {
-        signer: owner,
-        libraries: { 
-          LibOptimism: env.libOptimism.address
-        }
-      }
-    )
-
-    env.optimismSequencerProxy = await deploy(
-      'tokamak-daov2-contracts',
-      'OptimismSequencerProxy',
-      { signer: owner }
-    )
-
-    env.optimismSequencer = await attach(
-      'tokamak-daov2-contracts',
-      'OptimismSequencer',
-      env.optimismSequencerProxy.address,
-      { signer: owner }
-    )
-
-    env.CandidateLogic = await deploy(
-      'tokamak-daov2-contracts',
-      'Candidate',
-      {
-        signer: owner,
-        libraries: { 
-          LibOperator: env.libOperator.address 
-        }
-      }
-    )
-
-    env.candidateProxy = await deploy(
-      'tokamak-daov2-contracts',
-      'CandidateProxy',
-      {
-        signer: owner
-      }
-    )
-
-    env.candidate = await attach(
-      'tokamak-daov2-contracts',
-      'Candidate',
-      env.candidateProxy.address,
-      { signer: owner }
-    )
+    // env.daoProxyLogic1 =  await attach(
+    //   'tokamak-daov2-contracts', 
+    //   'DAOv2CommitteeV1', 
+    //   env.daoV1Proxy.address, 
+    //   { signer: owner }
+    // );
+    // env.daoProxyLogic2 =  await attach(
+    //   'tokamak-daov2-contracts', 
+    //   'DAOv2CommitteeV2', 
+    //   env.daoV1Proxy.address, 
+    //   { signer: owner }
+    // );
 
 
-    env.addressManager = await deploy(
-      'tokamak-daov2-contracts',
-      'Lib_AddressManager',
-      { signer: owner }
-    )
+    // //StakingV2
+    // env.seigManagerV2Logic = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'SeigManagerV2',
+    //   { signer: owner }
+    // )
 
-    env.l1Messenger = await deploy(
-      'tokamak-daov2-contracts',
-      'MockL1Messenger',
-      { signer: owner }
-    )
+    // env.seigManagerV2Proxy = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'SeigManagerV2Proxy',
+    //   { signer: owner }
+    // )
 
-    env.l2Messenger = await deploy(
-      'tokamak-daov2-contracts',
-      'MockL2Messenger',
-      { signer: owner }
-    )
+    // env.seigManagerV2 = await attach(
+    //   'tokamak-daov2-contracts',
+    //   'SeigManagerV2',
+    //   env.seigManagerV2Proxy.address,
+    //   { signer: owner }
+    // )
 
-    env.l1Bridge = await deploy(
-      'tokamak-daov2-contracts',
-      'MockL1Bridge',
-      { signer: owner }
-    )
+    // env.libOptimism = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'LibOptimism',
+    //   { signer: owner }
+    // )
 
-    env.l2Bridge = await deploy(
-      'tokamak-daov2-contracts',
-      'MockL2Bridge',
-      { signer: owner }
-    )
+    // env.libOperator = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'LibOperator',
+    //   { signer: owner }
+    // )
 
-    await env.l1Bridge.setAddress(
-      env.l1Messenger.address,
-      env.l2Bridge.address
-    )
+    // env.Layer2ManagerLogic_ = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'Layer2Manager',
+    //   {
+    //     signer: owner,
+    //     libraries: { 
+    //       LibOptimism: env.libOptimism.address, 
+    //       LibOperator: env.libOperator.address 
+    //     }
+    //   }
+    // )
 
-    await env.addressManager.setAddress("OVM_L1CrossDomainMessenger", env.l1Messenger.address);
-    await env.addressManager.setAddress("Proxy__OVM_L1StandardBridge", env.l1Bridge.address);
+    // env.layer2ManagerProxy = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'Layer2ManagerProxy',
+    //   { signer: owner }
+    // )
 
-    env.l2ton = await deploy(
-      'tokamak-daov2-contracts',
-      'TestERC20',
-      { signer: owner }
-    )
+    // env.layer2Manager = await attach(
+    //   'tokamak-daov2-contracts',
+    //   'Layer2Manager',
+    //   env.layer2ManagerProxy.address,
+    //   { signer: owner }
+    // )
+
+    // env.OptimismSequencerLogic_ = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'OptimismSequencer',
+    //   {
+    //     signer: owner,
+    //     libraries: { 
+    //       LibOptimism: env.libOptimism.address
+    //     }
+    //   }
+    // )
+
+    // env.optimismSequencerProxy = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'OptimismSequencerProxy',
+    //   { signer: owner }
+    // )
+
+    // env.optimismSequencer = await attach(
+    //   'tokamak-daov2-contracts',
+    //   'OptimismSequencer',
+    //   env.optimismSequencerProxy.address,
+    //   { signer: owner }
+    // )
+
+    // env.CandidateLogic = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'Candidate',
+    //   {
+    //     signer: owner,
+    //     libraries: { 
+    //       LibOperator: env.libOperator.address 
+    //     }
+    //   }
+    // )
+
+    // env.candidateProxy = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'CandidateProxy',
+    //   {
+    //     signer: owner
+    //   }
+    // )
+
+    // env.candidate = await attach(
+    //   'tokamak-daov2-contracts',
+    //   'Candidate',
+    //   env.candidateProxy.address,
+    //   { signer: owner }
+    // )
+
+
+    // env.addressManager = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'Lib_AddressManager',
+    //   { signer: owner }
+    // )
+
+    // env.l1Messenger = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'MockL1Messenger',
+    //   { signer: owner }
+    // )
+
+    // env.l2Messenger = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'MockL2Messenger',
+    //   { signer: owner }
+    // )
+
+    // env.l1Bridge = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'MockL1Bridge',
+    //   { signer: owner }
+    // )
+
+    // env.l2Bridge = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'MockL2Bridge',
+    //   { signer: owner }
+    // )
+
+    // await env.l1Bridge.setAddress(
+    //   env.l1Messenger.address,
+    //   env.l2Bridge.address
+    // )
+
+    // await env.addressManager.setAddress("OVM_L1CrossDomainMessenger", env.l1Messenger.address);
+    // await env.addressManager.setAddress("Proxy__OVM_L1StandardBridge", env.l1Bridge.address);
+
+    // env.l2ton = await deploy(
+    //   'tokamak-daov2-contracts',
+    //   'TestERC20',
+    //   { signer: owner }
+    // )
 
     return env;
   }

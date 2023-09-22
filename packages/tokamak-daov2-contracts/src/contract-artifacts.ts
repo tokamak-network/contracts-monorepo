@@ -30,6 +30,12 @@
         } catch {}
         
 
+        // let ERC165
+        // try {
+        //   ERC165 = require('../artifacts/contracts/AccessControl/ERC165.sol/ERC165.json')
+        // } catch {}
+        
+
         let ERC165A
         try {
           ERC165A = require('../artifacts/contracts/AccessControl/ERC165A.sol/ERC165A.json')
@@ -504,6 +510,12 @@
         } catch {}
         
 
+        let DAOCommitteeProxy
+        try {
+          DAOCommitteeProxy = require('../artifacts/contracts/test/DAOCommitteeProxy.sol/DAOCommitteeProxy.json')
+        } catch {}
+        
+
         let DAOVault
         try {
           DAOVault = require('../artifacts/contracts/test/DAOVault.sol/DAOVault.json')
@@ -828,6 +840,7 @@
 Address,
 Context,
 EnumerableSet,
+ERC165,
 ERC165A,
 ERC20,
 ERC20Burnable,
@@ -907,6 +920,7 @@ CandidateFactory,
 CoinageFactory,
 CrossDomainEnabled,
 DAOAgendaManager,
+DAOCommitteeProxy,
 DAOVault,
 // ICandidate,
 ICrossDomainMessenger,
@@ -941,7 +955,7 @@ Staking,
 TestERC20,
 AuthController,
 // Context,
-ERC165,
+// ERC165,
 ERC165Checker,
 // ERC20,
 // ERC20Detailed,

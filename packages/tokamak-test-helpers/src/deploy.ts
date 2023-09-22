@@ -1,5 +1,6 @@
 import 'ethers';
 import { getContractFactoryPlasmaEvm } from '@tokamak-network/plasma-evm-contracts'
+import { getContractFactoryTokamakDaoV2 } from '@tokamak-network/tokamak-daov2-contracts'
 
 export const deploy = async (
   packageName:string,
@@ -12,6 +13,8 @@ export const deploy = async (
   let factory;
   if (packageName == "plasma-evm-contracts") {
     factory = getContractFactoryPlasmaEvm(name, opts?.signer)
+  } else if (packageName == 'tokamak-daov2-contracts') {
+    factory = getContractFactoryTokamakDaoV2(name, opts?.signer)
   }
   return factory.deploy(...(opts?.args || []))
 }
@@ -27,6 +30,8 @@ export const attach = async (
   let factory;
   if (packageName == "plasma-evm-contracts") {
     factory = getContractFactoryPlasmaEvm(name, opts?.signer)
+  } else if (packageName == 'tokamak-daov2-contracts') {
+    factory = getContractFactoryTokamakDaoV2(name, opts?.signer)
   }
   return factory.attach(address);
 }

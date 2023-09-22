@@ -59,6 +59,66 @@ export class Env {
   coinages: Array<Contract>
   coinagesByLayer2: any
 
+  daoV1Proxy: Contract
+  daoV2Proxy: Contract
+  daoV2Contract: Contract
+
+  daoAgendaManager: Contract
+  candidateFactory: Contract
+
+  daoCommitteV1: Contract
+  daoCommitteV2: Contract
+
+  daoProxyLogic1: Contract
+  daoProxyLogic2: Contract
+
+  seigManagerV2Logic: Contract
+  seigManagerV2Proxy: Contract
+  seigManagerV2: Contract
+
+  LibOptimism_: Contract
+  libOptimism: Contract  
+
+  LibOperator_: Contract
+  libOperator: Contract
+
+  Layer2Manager_: Contract
+  Layer2ManagerLogic_: Contract
+  Layer2ManagerProxy_: Contract
+  layer2ManagerProxy: Contract
+
+  layer2Manager: Contract
+
+  OptimismSequencer_: Contract
+  OptimismSequencerLogic_: Contract
+  OptimismSequencerProxy_: Contract
+  optimismSequencerProxy: Contract
+  optimismSequencer: Contract
+
+  Candidate_: Contract
+  CandidateLogic: Contract
+  CandidateProxy_: Contract
+  candidateProxy: Contract
+  candidate: Contract
+
+  Lib_AddressManager: Contract
+  addressManager: Contract
+
+  MockL1Messenger: Contract
+  l1Messenger: Contract
+
+  MockL2Messenger: Contract
+  l2Messenger: Contract
+
+  MockL1Bridge: Contract
+  l1Bridge: Contract
+
+  MockL2Bridge: Contract
+  l2Bridge: Contract
+
+  TestERC20: Contract
+  l2ton: Contract
+
   constructor(args: any) {
     this.owner = args.owner;
 
@@ -181,6 +241,54 @@ export class Env {
     env.seigManager.setPowerTONSeigRate(env.POWERTON_SEIG_RATE);
     env.seigManager.setDaoSeigRate(env.DAO_SEIG_RATE);
     env.seigManager.setPseigRate(env.PSEIG_RATE);
+
+
+    //DAOv2 Part
+    env.daoAgendaManager = await deploy(
+      'tokamak-daov2-contracts', 
+      'DAOAgendaManager', 
+      { signer: owner }
+    );
+
+    env.candidateFactory = await deploy(
+      'tokamak-daov2-contracts', 
+      'CandidateFactory', 
+      { signer: owner }
+    );
+
+    env.daoV2Proxy = await deploy(
+      'tokamak-daov2-contracts', 
+      'DAOCommitteeProxyV2', 
+      { signer: owner }
+    );
+
+    env.daoV1Proxy = await deploy(
+      'tokamak-daov2-contracts', 
+      'DAOCommitteeProxy', 
+    {
+      args: [
+        env.ton.address,
+        env.daoV2Proxy.address,
+        env.seigManager.address,
+        env.registry.address,
+        env.daoAgendaManager.address,
+        env.candidateFactory.address,
+        env.daoVault.address
+      ],
+      signer: owner
+    })
+
+    env.daoCommitteV1 = await deploy(
+      'tokamak-daov2-contracts', 
+      'DAOv2CommitteeV1', 
+      { signer: owner }
+    )
+
+    env.daoCommitteV2 = await deploy(
+      'tokamak-daov2-contracts', 
+      'DAOv2CommitteeV2', 
+      { signer: owner }
+    )
 
     return env;
   }

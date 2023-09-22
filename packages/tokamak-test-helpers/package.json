@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@tokamak-network/plasma-evm-contracts": "^0.0.1",
+    "@tokamak-network/tokamak-daov2-contracts": "^0.0.1",
     "ethers": "^5.7.0"
   }
 }

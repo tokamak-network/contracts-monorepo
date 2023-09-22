@@ -5,7 +5,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "hardhat test --show-stack-traces"
+    "test": "hardhat test --show-stack-traces",
+    "test:mint": "hardhat test test/SeigManagerRenounce.spec.ts --show-stack-traces",
+    "test:dao": "hardhat test test/Daov2Committee.spec.ts --show-stack-traces"
   },
   "dependencies": {
     "@makerdao/currency": "^0.9.10",

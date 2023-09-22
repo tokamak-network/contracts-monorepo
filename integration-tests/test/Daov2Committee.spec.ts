@@ -175,6 +175,8 @@ describe('DAOV2Committee Test', function () {
   let tokenOwner1: SignerWithAddress
   let tokenOwner2: SignerWithAddress
 
+  let deployed: any
+
   const makePos = (v1: BigNumber, v2: BigNumber) => { return v1.shl(128).add(v2); }
 
   const checkBalanceProm = async (balanceProm, expected, unit) => {
@@ -208,7 +210,6 @@ describe('DAOV2Committee Test', function () {
 
     this.env = await Env.new(operator);
 
-
     console.log("-----------------------------------------")
     console.log("-----------------------------------------")
     console.log("-----------------------------------------")
@@ -217,6 +218,33 @@ describe('DAOV2Committee Test', function () {
     console.log("-----------------------------------------")
     console.log("-----------------------------------------")
   });
+
+  // before('setting', async () => {
+  //   [ operator, tokenOwner1, tokenOwner2 ] = await ethers.getSigners();
+
+  //     deployed = await Env.new(operator);
+
+  //     await deployed.deployLayer2(operator)
+  //     deployed.layer2 = deployed.env.layer2s[0]
+
+  //     console.log("-----------------------------------------")
+  //     console.log("-----------------------------------------")
+  //     console.log("-----------------------------------------")
+  //     console.log("------------------INPUT------------------")
+  //     console.log("-----------------------------------------")
+  //     console.log("-----------------------------------------")
+  //     console.log("-----------------------------------------")
+  // })
+
+  it("check DAOPRoxy test", async function () {
+    // console.log(this.env.daoV2Proxy)
+    // console.log(this.env.wton)
+    let tx = await this.env.daoV1Proxy.ton();
+    console.log(tx);
+    expect(tx).to.be.equal(this.env.ton.address);
+  });
+
+
 
   it('check wtonMinter role', async function () {
     let tx = await this.env.wton.isMinter(this.env.seigManager.address);
